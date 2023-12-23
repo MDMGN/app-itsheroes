@@ -1,13 +1,13 @@
 import { View,Text } from "react-native";
 import useHeroes from "../hooks/useHeroes";
-import CardsHeroes from "../components/CardsHeroes";
+import {CardsHeroes} from "../components";
 
-export default function Heroes() {
-  const {heroes} =useHeroes()
+export function Heroes() {
+  const {heroes,isLoading,onMoreItem} =useHeroes()
   return (
     <View>
         <Text>Heroes</Text>
-        <CardsHeroes heroes={heroes} />
+        <CardsHeroes heroes={heroes} onMoreitem={onMoreItem} isLoading={isLoading} />
     </View>
   )
 }

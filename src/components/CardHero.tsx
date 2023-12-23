@@ -5,7 +5,7 @@ type Props={
     hero:Hero
 }
 
-export default function CardHero(props:Props) {
+export function CardHero(props:Props) {
     const {hero}=props
   return (
     <View style={styles.card}>

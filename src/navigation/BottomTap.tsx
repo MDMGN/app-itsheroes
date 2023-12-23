@@ -1,7 +1,5 @@
 import {BottomTabNavigationOptions, createBottomTabNavigator} from "@react-navigation/bottom-tabs"
-import Heroes from "../screens/Heroes"
-import Comics from "../screens/Comics"
-import Shonen from "../screens/Shonen"
+import {Heroes,Shonen,Comics } from "../screens"
 
 const Tab=createBottomTabNavigator()
 
