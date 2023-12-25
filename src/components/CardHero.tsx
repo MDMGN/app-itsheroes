@@ -1,18 +1,31 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View, Pressable } from "react-native";
 import { Hero } from "../types/hero";
+import { useState } from "react";
+import {CardOption} from "./CardOption";
 
 type Props={
     hero:Hero
 }
 
 export function CardHero(props:Props) {
+    const [open,setOpen]=useState(false)
     const {hero}=props
   return (
-    <View style={styles.card}>
-        <Text style={styles.text}>{hero.name}</Text>
-        <Image source={{uri:hero.image_url}} height={250} width={250}  />
-        <Text style={styles.text}>{hero.publisher}</Text>
-    </View>
+    <Pressable
+        onPressIn={()=> setOpen(true)}
+        onPressOut={()=>{
+            setTimeout(()=>{
+                setOpen(false)
+            },1000)
+        }}
+    >
+        <View style={styles.card}>
+            <Text style={styles.text}>{hero.name}</Text>
+            <Image source={{uri:hero.image_url}} height={250} width={250}  />
+            <Text style={styles.text}>{hero.publisher}</Text>
+        </View>
+        <CardOption open={open} hero={hero} />
+    </Pressable>
   )
 }
 

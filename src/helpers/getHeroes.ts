@@ -25,7 +25,7 @@ const getHeroesOptionMixedByPages=()=>{
   }
 
 export const  getHeroesByPages= async():Promise<HeroComic[]>=>{
-    const selectedHeroes:number[]=getHeroesOptionMixedByPages();
+    const selectedHeroes:number[]=getHeoresOptionByPages();
 
     const heroesResponse =await Promise.all(
       selectedHeroes.map(id=>heroesApi.get<HeroComic>(`/${id}`))

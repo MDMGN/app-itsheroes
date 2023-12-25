@@ -1,10 +1,10 @@
 import { NavigationContainer } from "@react-navigation/native";
-import BottomTab from "./BottomTap";
+import StackGroup from "./StackGroup";
 
 export default function Navigation() {
   return (
     <NavigationContainer>
-        <BottomTab />
+        <StackGroup />
     </NavigationContainer>
   )
 }
