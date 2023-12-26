@@ -1,5 +1,6 @@
 import {BottomTabNavigationOptions, createBottomTabNavigator} from "@react-navigation/bottom-tabs"
 import {Heroes,Shonen,Comics } from "../screens"
+import { SearchHeader } from "../components"
 
 const Tab=createBottomTabNavigator()
 
@@ -21,10 +22,10 @@ const BottomTabOptions:BottomTabNavigationOptions={
   headerStyle:{
     backgroundColor: '#dfdfdf',
   },
-  headerTitleAlign:'center',
   headerTitleStyle:{
     textTransform:'capitalize',
     fontWeight:'bold',
     fontSize:25
   },
+  headerRight:()=>(<SearchHeader />)
 }

@@ -1,4 +1,5 @@
 export * from './CardHero'
-export * from './DetailsHero'
 export * from './CardsHeroes'
 export * from './Loader'
+export * from './SearchHeader'
+export * from './SearchInput'
