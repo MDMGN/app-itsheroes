@@ -13,7 +13,8 @@ export default function useHeroesShonen() {
                 id:data.mal_id.toString(),
                 name:data.name,
                 image_url:data.images.jpg.image_url,
-                publisher:data.name_kanji
+                publisher:data.name_kanji,
+                description:data.about
             } as Hero));
             setHeroes((prevHeroes)=>[...prevHeroes,...heroes])
             setIsLoading(false)

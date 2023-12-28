@@ -8,11 +8,13 @@ export default function useHerosComics() {
     useEffect(()=>{
         setIsLoading(true)
         getHeroesComicsByPages().then(heroesComics=>{
-            const heroes=heroesComics.map(({id,name,image,biography})=>({
-                    id,
-                    image_url:image.url,
-                    name,
-                    publisher:biography.publisher
+            const heroes:Hero[]=heroesComics.map(({id,name,image,appearance,powerstats,biography,work,connections})=>({
+                id,
+                name,
+                image_url:image.url,
+                publisher: biography.publisher,
+                description: `
+                Fullname: ${biography["full-name"] ? biography["full-name"] : name}\nHeight: ${appearance.height[0]} (${appearance.height[1]})\nWeight: ${appearance.weight[0]} (${appearance.weight[1]})\nEye Color: ${appearance["eye-color"]}\nHair Color: ${appearance["hair-color"]}\nGender: ${appearance.gender}\nRace ${appearance.race}\n\nPower Stats:\nIntenlligence: ${powerstats.intelligence}\nStrength: ${powerstats.strength}\nSpeed: ${powerstats.speed}\nCombat: ${powerstats.combat}\nPower: ${powerstats.power}\nDurability: ${powerstats.durability}\n\nAliases:\n ${biography.aliases.map(el=>`\t- ${el}.\n`)}\n\n${work.occupation}. ${work.base}.\n${connections["group-affiliation"]}. ${connections.relatives}`
             } as Hero));
             setHeroes((prevHeroes)=>[...prevHeroes,...heroes]);
             setIsLoading(false)
