@@ -22,7 +22,16 @@ export type HeroShonenSearch = {
         favorites:  number;
         about:      string;
    }>,
-       pagination:any
+       pagination:{
+            last_visible_page: 7,
+            has_next_page: boolean,
+            current_page: 1,
+            items: {
+            count: number,
+            total: number,
+            per_page: number
+        }
+       }
 }
 
 export type Images = {

@@ -16,7 +16,7 @@ export function CardHero(props:Props) {
         onPressOut={()=>{
             setTimeout(()=>{
                 setOpen(false)
-            },1000)
+            },1200)
         }}
     >
         <View style={styles.card}>
@@ -49,6 +49,7 @@ const styles=StyleSheet.create({
     text:{
         textAlign: 'center',
         margin: 5,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontFamily: 'HeyComic'
     }
 })

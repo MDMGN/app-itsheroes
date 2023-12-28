@@ -1,4 +1,4 @@
-import { HeroComic } from "../types/heroComic";
+import { HeroComic, HeroComicSearch } from "../types/heroComic";
 import heroesApi from "../api/heroesApi";
 
 const pages:number=6;
@@ -44,7 +44,7 @@ export const  getHeroesByPages= async():Promise<HeroComic[]>=>{
       return response.data;
   }
 
- export const getSearchHeroByName=async(name:string):Promise<HeroComic>=>{
-    const response= await heroesApi.get<HeroComic>(`/search/${name}`);
+ export const getSearchHeroByName=async(name:string):Promise<HeroComicSearch>=>{
+    const response= await heroesApi.get<HeroComicSearch>(`/search/${name}`);
     return response.data;
   }

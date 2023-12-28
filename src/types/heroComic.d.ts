@@ -9,8 +9,9 @@ export type HeroComic = {
     connections: Connections;
     image:       Image;
 }
-export type HeroSearch={
-    response: string,
+type responseHero= 'success' | 'error'
+export type HeroComicSearch={
+    response: responseHero,
     results:HeroComic[],
     "results-for":string 
 }

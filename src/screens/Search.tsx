@@ -1,9 +1,9 @@
 import { ParamListBase, RouteProp, useRoute } from '@react-navigation/native'
-import React from 'react'
-import { Text, View } from 'react-native'
+import { View } from 'react-native'
+import SearchHeroes from '../components/SearchHeroes'
 
 type SearchHeroRouteParams={
-  heroType:String
+  heroType:string
 }
 type SearchHeroRouteProp = RouteProp<ParamListBase, "search"> & {
   params: SearchHeroRouteParams;
@@ -12,8 +12,8 @@ type SearchHeroRouteProp = RouteProp<ParamListBase, "search"> & {
 export function Search() {
   const {params}=useRoute<SearchHeroRouteProp>()
   return (
-    <View>
-        <Text>{params.heroType}</Text>
+    <View style={{backgroundColor:'#fff',flex:1, paddingHorizontal:20}}>
+        <SearchHeroes heroType={params.heroType} />
     </View>
   )
 }

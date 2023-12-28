@@ -1,4 +1,4 @@
-import { HeroComic } from "../types/heroComic";
+import { HeroComic, HeroComicSearch } from "../types/heroComic";
 import heroesApi from "../api/heroesApi";
 import { AxiosResponse } from "axios";
 
@@ -41,7 +41,7 @@ export const  getHeroesComicsByPages= async():Promise<HeroComic[]>=>{
     return heroes;
   }
 
- export const getSearchHeroComicsByName=async(name:string):Promise<HeroComic>=>{
-    const response= await heroesApi.get<HeroComic>(`/search/${name}`);
+ export const getSearchHeroComicsByName=async(name:string):Promise<HeroComicSearch>=>{
+    const response= await heroesApi.get<HeroComicSearch>(`/search/${name}`);
     return response.data;
   }
