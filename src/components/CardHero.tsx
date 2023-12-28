@@ -18,6 +18,7 @@ export function CardHero(props:Props) {
                 setOpen(false)
             },1200)
         }}
+        style={{alignItems:'center'}}
     >
         <View style={styles.card}>
             <Text style={styles.text}>{hero.name}</Text>
@@ -43,7 +44,6 @@ const styles=StyleSheet.create({
         height:350,
         borderColor: '#000',
         padding: 15,
-        marginHorizontal: 50,
         marginVertical: 10
     },
     text:{

@@ -33,9 +33,8 @@ export function CardOption(props:Props) {
           height: 350,
           backgroundColor: '#000',
           paddingVertical: 15,
-          marginHorizontal: 50,
-          marginVertical: 10,
           position: 'absolute',
+          top:12
       },
       cardOptionText:{
           color:'#fff',
