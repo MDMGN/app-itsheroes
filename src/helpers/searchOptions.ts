@@ -10,8 +10,7 @@ const searchOptions:Record<string,(name:string)=>Promise<Hero[]>>={
                                 {
                                   id,
                                   name,
-                                  description: `
-                                                  Fullname: ${biography["full-name"] ? biography["full-name"] : name}\nHeight: ${appearance.height[0]} (${appearance.height[1]})\nWeight: ${appearance.weight[0]} (${appearance.weight[1]})\nEye Color: ${appearance["eye-color"]}\nHair Color: ${appearance["hair-color"]}\nGender: ${appearance.gender}\nRace ${appearance.race}\n\nPower Stats:\nIntenlligence: ${powerstats.intelligence}\nStrength: ${powerstats.strength}\nSpeed: ${powerstats.speed}\nCombat: ${powerstats.combat}\nPower: ${powerstats.power}\nDurability: ${powerstats.durability}\n\nAliases:\n ${biography.aliases.map(el=>`\t- ${el}.\n`)}\n\n${work.occupation}. ${work.base}.\n${connections["group-affiliation"]}. ${connections.relatives}`,
+                                  description: `Fullname: ${biography["full-name"] ? biography["full-name"] : name}\nHeight: ${appearance.height[0]} (${appearance.height[1]})\nWeight: ${appearance.weight[0]} (${appearance.weight[1]})\nEye Color: ${appearance["eye-color"]}\nHair Color: ${appearance["hair-color"]}\nGender: ${appearance.gender}\nRace ${appearance.race}\n\nPower Stats:\nIntenlligence: ${powerstats.intelligence}\nStrength: ${powerstats.strength}\nSpeed: ${powerstats.speed}\nCombat: ${powerstats.combat}\nPower: ${powerstats.power}\nDurability: ${powerstats.durability}\n\nAliases:\n ${biography.aliases.map(el=>`\t- ${el}.\n`)}\n\n${work.occupation}. ${work.base}.\n${connections["group-affiliation"]}. ${connections.relatives}`,
                                   image_url: image.url,
                                   publisher: biography.publisher
                                 } as Hero
