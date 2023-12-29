@@ -2,7 +2,7 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { useNavigation } from "@react-navigation/native";
 import { Hero } from "../types/hero";
 import { useEffect, useRef } from "react";
-import { Animated, Easing} from "react-native";
+import { Alert, Animated, Easing} from "react-native";
 
 
 type Props={
@@ -22,7 +22,21 @@ export function useCardOption({open,hero}:Props) {
     const options:Record<string,()=>void>={
         detalles:()=> navigate("details-hero",{hero}),
         favoritos:()=>{},
-        guardar:()=>{}
+        guardar:()=>{
+          Alert.alert('Guardar Heroe','Deseas guardar al heroe?',[
+          {
+            style:'cancel',
+            text:'Cancelar'
+          },
+          {
+            style:'default',
+            text:'Aceptar',
+            onPress:()=>{
+              
+            }
+          }
+          ])
+        }
       }
   
       const fadeInOut=()=>{
