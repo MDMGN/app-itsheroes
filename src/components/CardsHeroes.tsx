@@ -1,8 +1,8 @@
-import { FlatList, StyleSheet, ViewToken, ViewabilityConfigCallbackPair } from "react-native";
+import { FlatList } from "react-native";
 import { Hero } from "../types/hero";
 import { CardHero } from "./CardHero";
 import { Loader } from "./Loader";
-import { useRef, useState } from "react";
+import useCardsHeroes from "../hooks/useCardsHeroes";
 
 type Props={
     heroes:Hero[],
@@ -10,21 +10,8 @@ type Props={
     isLoading:boolean
 }
 export function CardsHeroes(props:Props) {
-    const {heroes,isLoading,onMoreitem}=props
-    const [focusedID,setFocusedID]=useState('')
-    const onViewableItemsChanged = ({  viewableItems}:{viewableItems: ViewToken[]}) => {
-      if(viewableItems.length > 0){
-        setFocusedID(viewableItems[0].key ||'')
-      }
-    };
-    const viewabilityConfigCallbackPairs = useRef<ViewabilityConfigCallbackPair[]>(
-      [
-        {
-          onViewableItemsChanged,
-          viewabilityConfig: { itemVisiblePercentThreshold: 50 },
-        },
-      ]
-    );
+  const {heroes,isLoading,onMoreitem}=props
+  const {focusedID,viewabilityConfigCallbackPairs}=useCardsHeroes()
 
   return (
     <FlatList
@@ -36,18 +23,12 @@ export function CardsHeroes(props:Props) {
             focusedID={focusedID}
           />
         )}
-        style={styles.cards}
+        style={{marginBottom: 20}}
         ListFooterComponent={<Loader isLoading={isLoading} />}
         onEndReached={onMoreitem}
         onEndReachedThreshold={0}
-        viewabilityConfig={{itemVisiblePercentThreshold:50}}
-        viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
+        /* viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
+        viewabilityConfig={{itemVisiblePercentThreshold:20}} */
     />
   )
 }
-
-const styles=StyleSheet.create({
-  cards:{
-      marginBottom: 20
-  }
-})

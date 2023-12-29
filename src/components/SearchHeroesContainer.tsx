@@ -7,7 +7,7 @@ type Props={
     heroType: string
 }
 
-export default function SearchHeroes({heroType}:Props) {
+export function SearchHeroesContainer({heroType}:Props) {
     const {heroes,error,isLoading, search}= useSearchHero(heroType)
     if(search==='') return null
 

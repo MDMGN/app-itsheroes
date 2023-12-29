@@ -1,19 +1,24 @@
 import { Image, StyleSheet, Text, View, Pressable } from "react-native";
 import { Hero } from "../types/hero";
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 import {CardOption} from "./CardOption";
 
 type Props={
     hero:Hero,
-    focusedID:string
+    focusedID:string,
 }
 
 export function CardHero(props:Props) {
     const {hero,focusedID}=props
-    const [open, setOpen] = useState(false)
+    const [open,setOpen]=useState(false)
   return (
     <Pressable
         onPressIn={()=>setOpen(true)}
+        onPressOut={()=>{
+            setTimeout(()=>{
+                setOpen(false)
+            },1200)
+        }}
         style={{alignItems:'center'}}
     >
         <View style={styles.card}>
@@ -21,7 +26,7 @@ export function CardHero(props:Props) {
             <Image source={{uri:hero.image_url}} height={250} width={250}  />
             <Text style={styles.text}>{hero.publisher}</Text>
         </View>
-       {focusedID===hero.id && <CardOption open={open} hero={hero} />}
+        <CardOption open={open} hero={hero} />
     </Pressable>
   )
 }

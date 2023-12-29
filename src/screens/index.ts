@@ -5,3 +5,4 @@ export * from './Marvel';
 export * from './Shonen';
 export * from './Search';
 export * from './DetailsHero';
+export * from './MyHeroes';

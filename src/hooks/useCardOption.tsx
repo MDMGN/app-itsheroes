@@ -2,7 +2,7 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { useNavigation } from "@react-navigation/native";
 import { Hero } from "../types/hero";
 import { useEffect, useRef } from "react";
-import { Animated } from "react-native";
+import { Animated, Easing} from "react-native";
 
 
 type Props={
@@ -29,7 +29,8 @@ export function useCardOption({open,hero}:Props) {
         Animated.sequence([
           Animated.timing(fadeAnim, {
             toValue: 1,
-            duration: 100,
+            duration: 200,
+            easing: Easing.inOut(Easing.cubic),
             useNativeDriver: true,
           }),
           Animated.spring(fadeAnim, {
