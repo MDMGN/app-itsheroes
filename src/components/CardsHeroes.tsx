@@ -28,7 +28,7 @@ export function CardsHeroes(props:Props) {
         onEndReached={onMoreitem}
         onEndReachedThreshold={0}
         /* viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
-        viewabilityConfig={{itemVisiblePercentThreshold:20}} */
+        viewabilityConfig={{itemVisiblePercentThreshold:20}}*/
     />
   )
 }
