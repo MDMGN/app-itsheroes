@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { Text, View } from 'react-native'
+import { Text } from 'react-native'
 import { UserContext } from '../contexts/userContext/UserContext'
 import { MyHeroItem } from '../components/MyHeroItem'
 import { ScrollView } from 'react-native-gesture-handler'
