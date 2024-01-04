@@ -1,7 +1,9 @@
 import { Image, StyleSheet, Text, View, Pressable } from "react-native";
 import { Hero } from "../types/hero";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {CardOption} from "./CardOption";
+import { UserContext } from "../contexts/userContext/UserContext";
+import { MaterialIcons } from '@expo/vector-icons';
 
 type Props={
     hero:Hero,
@@ -10,7 +12,14 @@ type Props={
 
 export function CardHero(props:Props) {
     const {hero,focusedID}=props
+    const {heroes}= useContext(UserContext)
     const [open,setOpen]=useState(false)
+    const [isMyhero,setIsMyhero]=useState(false)
+    
+    useEffect(()=>{
+            setIsMyhero(heroes.some(myHero=>myHero.id===hero.id))
+    },[heroes])
+
   return (
     <Pressable
         onPressIn={()=>setOpen(true)}
@@ -26,7 +35,8 @@ export function CardHero(props:Props) {
             <Image source={{uri:hero.image_url}} height={250} width={250}  />
             <Text style={styles.text}>{hero.publisher}</Text>
         </View>
-        <CardOption open={open} hero={hero} />
+       {(!isMyhero) && <CardOption open={open} hero={hero} />}
+       {isMyhero && <MaterialIcons name={"favorite"} size={34} color={"black"} style={{position:'absolute'}} />}
     </Pressable>
   )
 }
