@@ -1,9 +1,9 @@
 import { useContext } from 'react'
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
-import { SearchContext } from '../contexts/searchContext/SearchContext'
+import { UserContext } from '../contexts/userContext/UserContext'
 
 export function SearchInput() {
-  const {search,setSearch} = useContext(SearchContext)
+  const {search,setSearch} = useContext(UserContext)
   return (
     <View style={styles.container}>
       <TextInput 

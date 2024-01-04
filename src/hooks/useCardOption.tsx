@@ -1,9 +1,10 @@
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useNavigation } from "@react-navigation/native";
 import { Hero } from "../types/hero";
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useReducer, useRef } from "react";
 import { Alert, Animated, Easing} from "react-native";
-
+import { UserContext } from "../contexts/userContext/UserContext";
+import { typeAction } from "../reducers/HeroesReducers";
 
 type Props={
     open: boolean,
@@ -14,10 +15,11 @@ type RootStackParamList = {
     "details-hero": { hero: Hero }
   };
 type DetailsHeroScreenNavigationProp = StackNavigationProp<RootStackParamList, "details-hero">;
-  
 
 export function useCardOption({open,hero}:Props) {
+    const {dispatchHeroes} = useContext(UserContext)
     const {navigate}=useNavigation<DetailsHeroScreenNavigationProp>()
+
     const  fadeAnim=useRef(new Animated.Value(1)).current
     const options:Record<string,()=>void>={
         detalles:()=> navigate("details-hero",{hero}),
@@ -31,9 +33,10 @@ export function useCardOption({open,hero}:Props) {
           {
             style:'default',
             text:'Aceptar',
-            onPress:()=>{
-              
-            }
+            onPress:()=> dispatchHeroes({
+              payload:hero,
+              type: typeAction.HERO_ADD
+            })
           }
           ])
         }

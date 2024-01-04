@@ -3,7 +3,7 @@ import Navigation from './src/navigation/Navigation';
 import { StyleSheet, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { useFonts } from "expo-font"
-import { SearchProvider } from './src/contexts/searchContext/SearchProvider';
+import UserProvider from './src/contexts/userContext/UserProvider';
 
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({
@@ -15,9 +15,9 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style='auto' />
-        <SearchProvider>
+        <UserProvider>
             <Navigation />
-        </SearchProvider>
+        </UserProvider>
     </View>
   );
 }

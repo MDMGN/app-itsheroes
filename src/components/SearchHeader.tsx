@@ -1,5 +1,5 @@
 import {FontAwesome} from '@expo/vector-icons'
-import { RouteProp, useNavigation, useRoute} from '@react-navigation/native'
+import { useNavigation, useRoute} from '@react-navigation/native'
 import { StackNavigationProp } from '@react-navigation/stack';
 import { TouchableOpacity } from 'react-native';
 
