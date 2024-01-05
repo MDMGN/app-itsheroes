@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "app-itsheroes",
-    "slug": "app-itsheroes",
+    "name": "itsheroes",
+    "slug": "itsheroes",
     "version": "1.0.0",
     "orientation": "default",
     "icon": "./assets/icon.png",
@@ -9,7 +9,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#fb7e2e"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -20,7 +20,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#000000"
       },
       "package": "com.mdmgn.appitsheroes"
     },
