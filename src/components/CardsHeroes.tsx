@@ -27,8 +27,10 @@ export function CardsHeroes(props:Props) {
         ListFooterComponent={<Loader isLoading={isLoading} />}
         onEndReached={onMoreitem}
         onEndReachedThreshold={0}
-        /* viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
-        viewabilityConfig={{itemVisiblePercentThreshold:20}}*/
+        /* 
+          viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
+          viewabilityConfig={{itemVisiblePercentThreshold:20}}
+        */
     />
   )
 }
